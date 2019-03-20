@@ -9,7 +9,7 @@ public class HoverPad : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player")
-            other.GetComponent<Rigidbody>().AddForce(Vector3.up * hoverForce, ForceMode.Acceleration);
+        // If the other collider is the player, add a force to its rigid body
+        // You will need this: AddForce(Vector3.up * hoverForce, ForceMode.Acceleration);
     }
 }

@@ -11,7 +11,7 @@ public class OnCollisionDestroy : MonoBehaviour {
         Destroy(gameObject);
 
         // Fun 
-        Instantiate(destroyAction, transform.position, Quaternion.identity);
+        // Instantiate a prefab particle system explosion
 
         // Bonus
         // Add a explosion sound to particle system

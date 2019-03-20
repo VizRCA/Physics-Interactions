@@ -12,9 +12,6 @@ public class HitEvent : MonoBehaviour {
 
     public void Hit(Vector3 rayOrigin, RaycastHit hit, float hitForce)
     {
-        hit.rigidbody.isKinematic = false;
-        hit.rigidbody.AddForce(-hit.normal * hitForce, ForceMode.Impulse);
-        hit.rigidbody.AddTorque(-Vector3.Cross(hit.point - rayOrigin, hit.normal) * hitForce);
-        hit.rigidbody.useGravity = true;
+        // TODO Do physics forces here
     }
 }

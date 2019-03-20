@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class PlaySoundOnTrigger : MonoBehaviour {
     AudioSource sound;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         sound = GetComponent<AudioSource>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        sound.PlayOneShot(sound.clip);
+        // TODO Trigger sound play if anything enters this object
     }
 }

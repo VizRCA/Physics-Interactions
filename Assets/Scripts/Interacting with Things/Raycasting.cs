@@ -8,7 +8,7 @@ public class Raycasting : MonoBehaviour {
     private readonly Vector3 _viewPos = new Vector3(0.5f, 0.5f);
     private Camera fpsCam;
 
-    [Range(0,5000)]
+    [Range(0, 5000)]
     public float hitForce = 100f;
 
 
@@ -22,29 +22,20 @@ public class Raycasting : MonoBehaviour {
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            // TODO 1. Get ray from camera viewport given screen centre point
+            // Camera.ViewportToWorldPoint
 
-            Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(_viewPos);
+            // TODO 2. Determine distance based on camera clip planes
 
-            float distance = fpsCam.farClipPlane - fpsCam.nearClipPlane;
+            // TODO 3. Do a sphere cast or raycast 
+            // Physics.SphereCast(args) or Physics.Raycast
 
-            RaycastHit hit;
 
-            if (Physics.SphereCast(rayOrigin,RayRadius, fpsCam.transform.forward, out hit, distance))
-            {
-                if(hit.transform.GetComponent<HitEvent>()){
-                    hit.transform.GetComponent<HitEvent>().Hit(rayOrigin, hit, hitForce);
-                }
-                else{
-                    if (hit.rigidbody != null)
-                    {
-                        hit.rigidbody.isKinematic = false;
-                        hit.rigidbody.AddForce(-hit.normal * hitForce, ForceMode.Impulse);
-                        hit.rigidbody.AddTorque(-Vector3.Cross(hit.point - rayOrigin, hit.normal) * hitForce);
-                        hit.rigidbody.useGravity = true;
-                    }    
-                }
+            // TODO 4. If cast hits something with a rigid body, apply phyiscs forces
+            // rigidbody.AddForce(-hit.normal * hitForce, ForceMode.Impulse);
+            // rigidbody.AddTorque(-Vector3.Cross(hit.point - rayOrigin, hit.normal) * hitForce);
 
-            }
+            // TODO 5. Improve this method, see if the hit thing has a HitEvent component and do physics there.
 
         }
     }
