@@ -64,7 +64,7 @@ Also, if you change the `Physic Material` on the `Box Collider`, this will chang
 
 ### Using Colliders and Rigidbodies in the Editor
 
-+ Open 1_Physics - Basics scene
++ Open `1_Physics - Basics` scene
 + Import funny shaped models
 + Add Colliders, Rigidbodies, check settings
 + Making composite shapes from Colliders for efficient collision checking
@@ -73,7 +73,7 @@ Also, if you change the `Physic Material` on the `Box Collider`, this will chang
 
 ### Using OnTrigger or OnCollision
 
-+ Open 2_Physics - Triggers scene
++ Open `2_Physics - Triggers` scene
 + Make a transparent box, open the template script `PlaySoundOnTrigger`
 + You will have to fill in how it works. What it should do is play a sound whenever the player enters the collider volume.
 + For bonus points, how can you ensure that the collider will be a trigger?
@@ -103,13 +103,64 @@ Also, if you change the `Physic Material` on the `Box Collider`, this will chang
 + Raycasting, shooting lasers to hit things in space
 + HitEvent, moving the process of object effects on the objects themselves
 
-## Events
+## Mouse Events
 
-TODO
+Unity gives you a pile of events on MonoBehaviour that work with mouse input
+
+```csharp
+    void OnMouseUpAsButton()
+    {
+        // Filters on and off mouse to give button effect
+    }
+
+    private void OnMouseUp()
+    {
+        // Check main mouse button release
+    }
+
+    private void OnMouseOver()
+    {
+        // Maybe change colour
+    }
+
+    private void OnMouseExit()
+    {
+        // Leaving the boundary of an object collider
+    }
+
+    private void OnMouseEnter()
+    {
+      // Entering collider of that object with mouses cursor
+    }
+
+    private void OnMouseDrag()
+    {
+      // Simple way to drag physical object with a cursor.
+    }
+
+    private void OnMouseDown()
+    {
+      // Get first down event from mouse button one
+    }
+```
+
++ Open `3_Interaction - Mouse` scene
++ Fill in the blanks on the `MouseDown.cs` script to make the head fly off when you click on them.
++ Add the` DragRigidbody.cs `script to each head and see if you can get them to slide around.
++ Experiment with different force types in the `AddForce` call.
 
 ## Raycasting
 
-TODO
+![raycast](https://unity3d.com/sites/default/files/introgif_0.gif)
+
++ Open `4_Interaction - Raycasting` scene
++ Fill in the blanks on the `Raycasting.cs` script to make the head fly off when you click on them.
++ Open the  `HitEvent.cs `script and transfer the same idea from head to the boxes.
++ Experiment with
+  + different force types in the `AddForce` call.
+  + rigidbody mass
+  + rigidbody drag
++ Add a Cross hair UI to the scene so you can see the centre point.
 
 # Bonus
 
@@ -119,3 +170,5 @@ TODO
 ![ragdoll](http://blog.leapmotion.com/wp-content/uploads/2014/06/ragdoll-gif.gif)
 
 + Klak - creative coding kit for Unity that you can prototype things with then steal the code
+  + [Original](https://github.com/keijiro/Klak)
+  + [My modified version](https://github.com/Adjuvant/Klak)
